@@ -2,16 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer base {
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html,
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+.mask-design {
+  border-radius: 40px;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.faded-corners {
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 20%,
+    transparent 100%
+  );
+}
+
+.faded-edgesv2 {
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 2%,
+    rgba(0, 0, 0, 1) 16%,
+    rgba(0, 0, 0, 1) 90%,
+    transparent 100%
+  );
+}
+
+.apex-arena {
+  text-align: center;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: #6d5873;
+  background: linear-gradient(180deg, #f5e2de 22.13%, #eed7da 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  line-height: normal;
+  text-shadow: 0px 8px 0px #224569;
+}
+
+.subTitle {
+  text-align: center;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #6d5873;
+  text-shadow: 0px 4px 0px #224569;
+  font-style: normal;
+  line-height: normal;
 }
