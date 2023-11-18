@@ -70,7 +70,7 @@ const PurchaseButton = () => {
 
   useEffect(() => {
     if ((checkAllowance as any) > 0) {
-      console.log(checkAllowance + " Testing");
+      // console.log(checkAllowance + " Testing");
       setIsApproved(true);
     } else if (isError) {
       setIsApproved(false);

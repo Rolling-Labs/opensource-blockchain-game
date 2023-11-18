@@ -105,7 +105,7 @@ const ApexArenaCharacterView = () => {
       if (isConnected) {
         getData();
       }
-      console.log(selectedID + " Testing");
+      // console.log(selectedID + " Testing");
     }
   }, [address, selectedID]);
 

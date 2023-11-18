@@ -6,7 +6,7 @@ import { spacegrotesk, trispace } from "@/public/fonts";
 import { useRouter } from "next/navigation";
 import { useSelectedSoltice } from "@/lib/store.ts/store";
 
-const ApexArenaResultView = () => {
+const ApexArenaResultView = ({ isWin, reward }: any) => {
   const router = useRouter();
   const { setSelectedID } = useSelectedSoltice((state) => state);
 
@@ -24,7 +24,7 @@ const ApexArenaResultView = () => {
             "font-black text-[80px] timer-text text-[#f4e7e5] apex-arena")
           }
         >
-          YOU WIN!
+          YOU {isWin ? "WIN!" : "LOSE!"}
         </h1>
 
         <h1
@@ -42,7 +42,7 @@ const ApexArenaResultView = () => {
             "font-bold text-[48px] text-[#f4e7e5] apex-arena-med")
           }
         >
-          {439.71} $TPT
+          {reward} $TPT
         </h1>
       </div>
       <button

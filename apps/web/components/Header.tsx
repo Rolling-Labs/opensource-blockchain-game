@@ -5,6 +5,10 @@ import { ConnectWallet } from "./ConnectWallet";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import HeaderLanding from "./LandingPage/HeaderLanding";
+import { useAccount, useContractRead, Address, useBalance } from "wagmi";
+import { GameABI, TimePotionABI } from "@/lib/abi";
+import ethers from "ethers";
+import TimePotion from "./TimePotion";
 
 const navigation = [
   {
@@ -20,7 +24,22 @@ const navigation = [
 ];
 
 const Header = () => {
+  const { address } = useAccount();
+
   const pathname = usePathname();
+
+  const { data: getEnergy } = useContractRead({
+    address: "0x6D9a9a7b347273AacF26099D9fDc4130c08E4b1E",
+    abi: GameABI,
+    functionName: "getEnergy",
+  });
+
+  const { data: balance } = useBalance({
+    address: address,
+    token: "0xbcc9F7E989aE209d611fAb5d3A05e8795F224cD2",
+  });
+
+  const energy: any = getEnergy;
 
   if (pathname !== "/apex-arena" && pathname !== "/apex-arena/battle")
     return <HeaderLanding />;
@@ -78,22 +97,7 @@ const Header = () => {
               width={24}
             />
 
-            <div className="flex flex-col">
-              <h1
-                className={
-                  (cn("font-[spacegrotesk]"), "text-xs font-medium uppercase")
-                }
-              >
-                Time Potion
-              </h1>
-              <h1
-                className={
-                  (cn("font-[spacegrotesk]"), "text-base font-bold uppercase")
-                }
-              >
-                431,967.82
-              </h1>
-            </div>
+            <TimePotion balance={balance?.formatted} />
           </div>
 
           <div className="flex flex-row items-center gap-2">
@@ -117,12 +121,12 @@ const Header = () => {
                   (cn("font-[spacegrotesk]"), "text-base font-bold uppercase")
                 }
               >
-                4/10
+                {energy.toString() || 0}/10
               </h1>
             </div>
           </div>
 
-          <div className="flex flex-col">
+          {/* <div className="flex flex-col">
             <h1
               className={
                 (cn("font-[spacegrotesk]"), "text-xs font-medium uppercase")
@@ -133,7 +137,7 @@ const Header = () => {
             <h1 className={(cn("font-[spacegrotesk]"), "text-base font-bold")}>
               8hrs:5min
             </h1>
-          </div>
+          </div> */}
           <ConnectWallet />
         </div>
       </div>

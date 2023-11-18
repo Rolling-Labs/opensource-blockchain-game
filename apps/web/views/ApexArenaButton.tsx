@@ -47,9 +47,9 @@ const ApexArenaButton = () => {
       <Image
         src={"/assets/apex-arena/start-image.png"}
         alt={"start"}
-        height={300}
-        width={300}
-        className="w-full max-w-[250px]"
+        height={600}
+        width={600}
+        className="w-full max-w-[500px]"
       />
     </button>
   );

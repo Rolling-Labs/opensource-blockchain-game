@@ -1,7 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useSelectedSoltice, useShowResult } from "@/lib/store.ts/store";
+import {
+  useSelectedSoltice,
+  useShowResult,
+  useTransactionHash,
+} from "@/lib/store.ts/store";
 import BlueGlow from "@/public/assets/apex-arena/battle/blue-glow.svg";
 import RedGlow from "@/public/assets/apex-arena/battle/red-glow.svg";
 import Image from "next/image";
@@ -11,11 +15,22 @@ import animData from "@/public/assets/apex-arena/fighting-window/sword-fighting.
 import { cn } from "@/lib/utils";
 import { trispace } from "@/public/fonts";
 import ApexArenaResultView from "./ApexArenaResultView";
+import {
+  useAccount,
+  useContractRead,
+  Address,
+  useWaitForTransaction,
+} from "wagmi";
+import { GameABI } from "@/lib/abi";
+import ethers from "ethers";
 
 const ApexArenaBattleView = () => {
+  const { address } = useAccount();
   const { selectedID } = useSelectedSoltice((state) => state);
   const [time, setTime] = useState<any>(3);
+  const [gameLoading, setGameLoading] = useState<any>(10);
   const { showResult, setShowResult } = useShowResult((state) => state);
+  const { hash, setHash } = useTransactionHash((state) => state);
 
   const router = useRouter();
 
@@ -28,6 +43,32 @@ const ApexArenaBattleView = () => {
     },
   };
 
+  const { data: dataUser } = useContractRead({
+    address: "0x6D9a9a7b347273AacF26099D9fDc4130c08E4b1E",
+    abi: GameABI,
+    functionName: "users",
+    args: [address as Address],
+  });
+  const data: any = dataUser;
+
+  const { data: dataRecord } = useContractRead({
+    address: "0x6D9a9a7b347273AacF26099D9fDc4130c08E4b1E",
+    abi: GameABI,
+    functionName: "gameRecord",
+    args: [address as Address, data[3]],
+  });
+
+  const {
+    data: sucess,
+    isSuccess,
+    isError,
+    isLoading,
+  } = useWaitForTransaction({
+    hash: hash,
+  });
+
+  const gameRecord: any = dataRecord;
+
   useEffect(() => {
     if (selectedID <= 0) {
       router.push("/apex-arena");
@@ -35,10 +76,22 @@ const ApexArenaBattleView = () => {
 
     const timer = setTimeout(() => {
       setTime(time - 1);
+      setGameLoading(gameLoading - 1);
     }, 1000);
 
+    if (isSuccess === true && gameLoading <= 0) {
+      setShowResult(true);
+    } else {
+      setShowResult(false);
+      // alert("You Lose");
+    }
+
     return () => clearTimeout(timer);
-  }, [selectedID, time]);
+  }, [selectedID, time, gameRecord]);
+
+  console.log(data);
+  console.log(gameRecord);
+
   return (
     <>
       <div className="flex lg:hidden justify-center items-center bg-[url('/assets/apex-arena/countdown-window/apex-game-bg.png')] bg-no-repeat bg-cover bg-center h-[58.8rem] relative">
@@ -51,9 +104,11 @@ const ApexArenaBattleView = () => {
       {time <= 0 && (
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-cNeutral-950/50 backdrop-blur">
           {showResult ? (
-            // Create Result Component
             <>
-              <ApexArenaResultView />
+              <ApexArenaResultView
+                isWin={gameRecord?.[1]}
+                reward={ethers.formatEther(gameRecord?.[2] || 0)}
+              />
             </>
           ) : (
             <Lottie
