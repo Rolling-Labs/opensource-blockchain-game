@@ -26,7 +26,7 @@ const GameSection = () => {
   return (
     <div className="flex justify-center items-center py-[4rem] lg:py-[8rem] bg-[url('/assets/landing-page/game-section-bg.png')] bg-no-repeat bg-cover bg-center lg:h-[60rem] my-[4rem]">
       <div className="flex flex-col max-w-[90rem] grow px-4 gap-16">
-        <div className="flex flex-col gap-4 items-end w-full">
+        <div className="flex flex-col gap-4 sm:items-end w-full">
           <h1 className="text-cNeutral-100 font-[trispace] font-bold text-2xl sm:text-[56px] leading-normal text-left sm:text-right">
             Go on awesome adventures
             <br />

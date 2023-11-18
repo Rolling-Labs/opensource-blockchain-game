@@ -34,7 +34,7 @@ const TimePotionSection = () => {
               activities.
             </span>
             <span>
-              Rare Mushroom (RRM) is subject to a taxation rate of 4%, which is
+              Rare Mushroom (TPN) is subject to a taxation rate of 4%, which is
               distributed as follows: 1% is allocated to the team wallet, 1% to
               the development wallet, and 2% is directed towards liquidity.
             </span>

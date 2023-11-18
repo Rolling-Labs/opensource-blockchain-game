@@ -4,6 +4,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ConnectWallet } from "../ConnectWallet";
 import GameModalSection from "./GameModalSection";
+import TestnetMarquee from "./TestnetMarquee";
 
 const navigation = [
   {
@@ -29,9 +30,10 @@ const HeaderLanding = () => {
 
   return (
     <>
-      <div className="fixed top-0 w-full flex justify-center items-center z-[999] bg-cNeutral-100">
+      <div className="fixed top-0 w-full flex flex-col justify-center items-center z-[999] bg-cNeutral-100">
+        <TestnetMarquee />
         <div
-          className={`flex flex-row justify-between items-center max-w-[90rem] grow text-cNeutral-900 py-[1.2rem] px-4`}
+          className={`flex flex-row justify-between items-center w-full max-w-[90rem] grow text-cNeutral-900 py-[1.2rem] px-4`}
         >
           <div className="flex flex-row gap-8 items-center">
             <a href="/">

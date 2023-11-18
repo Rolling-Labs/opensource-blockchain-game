@@ -13,8 +13,6 @@ import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
 import Arrow from "@/public/icons/arrow.svg";
 import SelectedSoltice from "@/public/assets/apex-arena/square-select.svg";
-import { cn } from "@/lib/utils";
-import { spacegrotesk } from "@/public/fonts";
 import { useSelectedSoltice } from "@/lib/store.ts/store";
 import useAlchemy from "@/hooks/useAlchemy";
 import { useAccount } from "wagmi";

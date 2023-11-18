@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useSelectedSoltice } from "@/lib/store.ts/store";
+import { useSelectedSoltice, useShowResult } from "@/lib/store.ts/store";
 import BlueGlow from "@/public/assets/apex-arena/battle/blue-glow.svg";
 import RedGlow from "@/public/assets/apex-arena/battle/red-glow.svg";
 import Image from "next/image";
@@ -15,7 +15,8 @@ import ApexArenaResultView from "./ApexArenaResultView";
 const ApexArenaBattleView = () => {
   const { selectedID } = useSelectedSoltice((state) => state);
   const [time, setTime] = useState<any>(3);
-  const [isShowResult, setIsShowResult] = useState(5);
+  const { showResult, setShowResult } = useShowResult((state) => state);
+
   const router = useRouter();
 
   const defaultOptions = {
@@ -34,12 +35,10 @@ const ApexArenaBattleView = () => {
 
     const timer = setTimeout(() => {
       setTime(time - 1);
-      setIsShowResult(isShowResult - 1);
     }, 1000);
 
     return () => clearTimeout(timer);
   }, [selectedID, time]);
-  // apex-game-bg.png
   return (
     <>
       <div className="flex lg:hidden justify-center items-center bg-[url('/assets/apex-arena/countdown-window/apex-game-bg.png')] bg-no-repeat bg-cover bg-center h-[58.8rem] relative">
@@ -51,7 +50,7 @@ const ApexArenaBattleView = () => {
       </div>
       {time <= 0 && (
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-cNeutral-950/50 backdrop-blur">
-          {isShowResult <= 0 ? (
+          {showResult ? (
             // Create Result Component
             <>
               <ApexArenaResultView />

@@ -12,7 +12,7 @@ import { publicProvider } from "wagmi/providers/public";
 import { jsonRpcProvider } from "@wagmi/core/providers/jsonRpc";
 
 const { chains, publicClient } = configureChains(
-  [sepolia, bscTestnet],
+  [sepolia],
   [
     // alchemyProvider({ apiKey: process.env.API_KEY ?? "" }),
     jsonRpcProvider({

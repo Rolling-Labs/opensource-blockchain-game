@@ -4,7 +4,7 @@ import CardNFT from "./CardNFT";
 import Image from "next/image";
 
 const NFTSection = () => {
-  const [selectedName, setSelectedName] = useState("");
+  const [selectedName, setSelectedName] = useState("Sparky");
 
   function getImage() {
     switch (selectedName) {
@@ -102,7 +102,9 @@ const NFTSection = () => {
           </div>
           <div className="grid grid-cols-2 gap-4 justify-center items-center grow w-full">
             <CardNFT
-              className={"hover:bg-[#D9631C] duration-150 w-full"}
+              className={`hover:bg-[#D9631C] ${
+                selectedName === "Sparky" && "bg-[#D9631C]"
+              } duration-150 w-full`}
               imgUrl={"/assets/apex-arena/sparky.png"}
               name={"Sparky"}
               description={
@@ -116,7 +118,9 @@ const NFTSection = () => {
               setSelectedName={setSelectedName}
             />
             <CardNFT
-              className={"hover:bg-[#e24a68] duration-150 w-full"}
+              className={`hover:bg-[#e24a68] ${
+                selectedName === "Shadow" && "bg-[#e24a68]"
+              } duration-150 w-full`}
               imgUrl={"/assets/apex-arena/shadow.png"}
               name={"Shadow"}
               description={
@@ -131,7 +135,9 @@ const NFTSection = () => {
             />
 
             <CardNFT
-              className={"hover:bg-[#244681] duration-150 w-full"}
+              className={`hover:bg-[#244681] ${
+                selectedName === "Frost" && "bg-[#244681]"
+              } duration-150 w-full`}
               imgUrl={"/assets/apex-arena/frost.png"}
               name={"Frost"}
               description={
@@ -146,7 +152,9 @@ const NFTSection = () => {
             />
 
             <CardNFT
-              className={"hover:bg-[#B96237] duration-150 w-full"}
+              className={`hover:bg-[#B96237] ${
+                selectedName === "Nimbus" && "bg-[#B96237]"
+              } duration-150 w-full`}
               imgUrl={"/assets/apex-arena/nimbus.png"}
               name={"Nimbus"}
               description={
@@ -161,7 +169,9 @@ const NFTSection = () => {
             />
 
             <CardNFT
-              className={"hover:bg-[#D52C27] duration-150 w-full"}
+              className={`hover:bg-[#D52C27] ${
+                selectedName === "Zephyr" && "bg-[#D52C27]"
+              } duration-150 w-full`}
               imgUrl={"/assets/apex-arena/zephyr.png"}
               name={"Zephyr"}
               description={
@@ -176,7 +186,9 @@ const NFTSection = () => {
             />
 
             <CardNFT
-              className={"hover:bg-[#2B2F31] duration-150 w-full"}
+              className={`hover:bg-[#2B2F31] ${
+                selectedName === "Monsta X" && "bg-[#2B2F31]"
+              } duration-150 w-full`}
               imgUrl={"/assets/apex-arena/monsta-x.png"}
               name={"Monsta X"}
               description={

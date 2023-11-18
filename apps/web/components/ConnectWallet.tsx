@@ -49,7 +49,7 @@ export const ConnectWallet = () => {
                 return (
                   <button
                     onClick={openChainModal}
-                    className="px-3 py-2 flex justify-center items-center gap-3 text-white-100 bg-error-100 rounded-lg w-full title hover:opacity-50 duration-150"
+                    className="px-3 py-2 flex justify-center items-center gap-3 text-cNeutral-100 bg-cSecondary-500 rounded-lg w-full text-base font-[spacegrotesk] hover:opacity-50 duration-150"
                   >
                     Wrong network
                   </button>

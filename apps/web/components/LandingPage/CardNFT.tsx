@@ -73,7 +73,7 @@ const CardNFT = ({
               <span className="font-bold">
                 {data.value} {data.name === "Win Rate: " && "%"}
                 {data.name === "Multiplier: " && "X"}
-                {data.name === "Max Win: " && "RRM"}
+                {data.name === "Max Win: " && "TPN"}
               </span>
             </h1>
           </div>
