@@ -1,9 +1,11 @@
+"use client";
 /* eslint-disable camelcase */
 import { useEffect, useState } from "react";
 import useAlchemy from "@/hooks/useAlchemy";
 import { useAccount, useContractRead } from "wagmi";
 import useMounted from "@/hooks/useMounted";
 import Image from "next/image";
+import { MonsterABI } from "@/lib/abi";
 // import { CFAv2ABI } from "@/lib/abi";
 
 const ApexArenaNFTView = () => {
@@ -13,18 +15,10 @@ const ApexArenaNFTView = () => {
 
   const [tokenId, setTokenId] = useState<any>([]);
 
-  const { data: batchGetImage } = useContractRead({
-    address: "", // contract address
-    // abi: CFAv2ABI,
-    functionName: "batchGetImage",
-    args: [tokenId],
-    watch: true,
-  });
-
   const getData = async () => {
     try {
       const nftsByAddress: any = await getNFTsByAddress(String(address), {
-        contractAddresses: [""], // contract address
+        contractAddresses: ["0x557558Ccb0B3F601Be541D19cC96626ba3F64a3B"], // contract address
         refreshCache: true,
         omitMetadata: false,
         pageSize: 10,
@@ -46,10 +40,6 @@ const ApexArenaNFTView = () => {
     }
   };
 
-  function getImage(index: any) {
-    return (batchGetImage as any)?.[index] ?? "";
-  }
-
   useEffect(() => {
     {
       if (isConnected) {
@@ -66,51 +56,45 @@ const ApexArenaNFTView = () => {
 
   return (
     <>
-      <div className="flex justify-center items-center h-[58rem] max-h-[90vh]">
-        {isConnected ? (
-          <>
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start items-center grow max-w-[70rem] max-h-[80vh] overflow-y-auto px-[1rem]">
-              <>
-                {nftCollection.length === 0 ? (
-                  <h1 className="text-white">You dont owned Savings NFT</h1>
-                ) : (
-                  <>
-                    {nftCollection.map((data: any, index: string) => {
-                      return (
-                        <div
-                          key={index}
-                          className="flex flex-col items-center gap-2 max-w-[250px] p-5 grow rounded-lg bg-[#1b3418] border border-[#9aff76]"
-                        >
-                          <>
-                            <Image
-                              src={getImage(index)}
-                              alt={"avalanche"}
-                              height={200}
-                              width={200}
-                              className="rounded-lg"
-                            />
-                            <div className="flex flex-col md:flex-row justify-between items-center w-full gap-2">
-                              <h1 className="text-white font-medium text-lg">
-                                {data.tokenId}
-                              </h1>
-                            </div>
-                          </>
-                        </div>
-                      );
-                    })}
-                  </>
-                )}
-              </>
-            </div>
-          </>
-        ) : (
-          <div className="flex justify-center items-center rounded-md p-5 max-h-[15rem] max-w-[20rem] w-full h-full">
-            <h1 className="text-[#9aff76] font-bold uppercase">
-              Connect Wallet First
-            </h1>
-          </div>
-        )}
-      </div>
+      {isConnected ? (
+        <>
+          {nftCollection.length === 0 ? (
+            <h1 className="text-white">You dont owned Soltice NFT</h1>
+          ) : (
+            <>
+              {nftCollection.map((data: any, index: string) => {
+                return (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center gap-2 max-w-[250px] p-5 grow rounded-lg bg-[#d9631c]/20 border border-[#f49a27]"
+                  >
+                    <>
+                      <Image
+                        src={data.rawMetadata.image}
+                        alt={data.title}
+                        height={200}
+                        width={200}
+                        className="rounded-lg"
+                      />
+                      <div className="flex flex-col md:flex-row justify-between items-center w-full gap-2">
+                        <h1 className="text-white font-medium text-lg">
+                          {data.title}
+                        </h1>
+                      </div>
+                    </>
+                  </div>
+                );
+              })}
+            </>
+          )}
+        </>
+      ) : (
+        <div className="flex justify-center items-center rounded-md p-5 max-h-[15rem] max-w-[20rem] w-full h-full">
+          <h1 className="text-[#9aff76] font-bold uppercase">
+            Connect Wallet First
+          </h1>
+        </div>
+      )}
     </>
   );
 };

@@ -7,7 +7,7 @@ const HeroSection = () => {
 
   return (
     <>
-      <div className="flex justify-center items-center py-[4rem] lg:py-[8rem] bg-[url('/assets/landing-page/bg-hero.png')] bg-no-repeat bg-cover bg-center h-[30rem] lg:h-[58rem]">
+      <div className="flex justify-center items-center py-[4rem] lg:py-[8rem] bg-[url('/assets/landing-page/bg-hero.png')] bg-no-repeat bg-cover bg-center h-[30rem] lg:h-[65rem]">
         <div className="flex flex-col h-full justify-end max-w-[90rem] grow px-4">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-4">

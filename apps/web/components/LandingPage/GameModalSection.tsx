@@ -32,7 +32,7 @@ const GameModalSection = ({ showmodal, setShowModal }: any) => {
               className="fixed top-0 w-full flex justify-center items-center h-full bg-cNeutral-900/50 backdrop-blur"
               onClick={() => setShowModal(false)}
             ></div>
-            <div className="flex flex-col gap-8 grow px-4 z-[2]">
+            <div className="flex flex-col gap-8 grow px-4 z-[2] max-w-[75.3rem]">
               <h1 className="font-[trispace] font-extrabold text-[64px] leading-normal text-cNeutral-100 text-center">
                 Choose a game
               </h1>

@@ -1,4 +1,5 @@
 import React from "react";
+import ApexArenaNFTView from "./ApexArenaNFTView";
 
 const PurchaseInventoryView = () => {
   return (
@@ -11,12 +12,8 @@ const PurchaseInventoryView = () => {
           Inventory
         </h1>
 
-        <div className="flex flex-wrap justify-start items-center gap-4 text-cNeutral-100">
-          <h1>test</h1>
-          <h1>test</h1>
-          <h1>test</h1>
-          <h1>test</h1>
-          <h1>test</h1>
+        <div className="flex flex-wrap justify-start items-center gap-4 text-cNeutral-100 grow w-full">
+          <ApexArenaNFTView />
         </div>
       </div>
     </div>
