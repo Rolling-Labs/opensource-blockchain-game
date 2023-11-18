@@ -1,9 +1,5 @@
 "use client";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import WarningIcon from "public/icons/swap/warning-icon.svg";
-import { useEffect } from "react";
-
-import { useAccount } from "wagmi";
 
 export const ConnectWallet = () => {
   return (
@@ -43,9 +39,8 @@ export const ConnectWallet = () => {
                   <button
                     onClick={openConnectModal}
                     type="button"
-                    className="bg-primary-100 text-black-100 title flex items-center gap-2 px-3 py-2 rounded-lg font-bold hover:opacity-50 duration-150"
+                    className="text-[#fff] bg-gradient-to-r from-[#7229e2] to-[#2159df] flex items-center gap-2 px-4 py-2 rounded-lg font-bold hover:opacity-50 duration-150"
                   >
-                    {/* <WalletIcon color={"#12202F"} />  */}
                     Connect Wallet
                   </button>
                 );
@@ -56,7 +51,7 @@ export const ConnectWallet = () => {
                     onClick={openChainModal}
                     className="px-3 py-2 flex justify-center items-center gap-3 text-white-100 bg-error-100 rounded-lg w-full title hover:opacity-50 duration-150"
                   >
-                    <WarningIcon /> Wrong network
+                    Wrong network
                   </button>
                 );
               }
@@ -65,7 +60,7 @@ export const ConnectWallet = () => {
                   <button
                     onClick={openAccountModal}
                     type="button"
-                    className="bg-primary-100 text-black-100 title flex items-center gap-2 px-3 py-2 rounded-lg font-bold hover:opacity-50 duration-150"
+                    className="text-[#fff] bg-gradient-to-r from-[#7229e2] to-[#2159df] flex items-center gap-2 px-4 py-2 rounded-lg font-bold hover:opacity-50 duration-150"
                   >
                     {/* <WalletIcon color={"#12202F"} />{" "} */}
                     {/* {account.hasPendingTransactions.toString()} */}
