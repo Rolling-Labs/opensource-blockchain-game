@@ -15,7 +15,7 @@ const ApexArenaNFTView = () => {
 
   const { data: batchGetImage } = useContractRead({
     address: "", // contract address
-    abi: CFAv2ABI,
+    // abi: CFAv2ABI,
     functionName: "batchGetImage",
     args: [tokenId],
     watch: true,

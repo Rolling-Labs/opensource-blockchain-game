@@ -4,10 +4,16 @@ import BannerStone from "@/public/assets/apex-arena/result-window/banner-stone.s
 import { cn } from "@/lib/utils";
 import { spacegrotesk, trispace } from "@/public/fonts";
 import { useRouter } from "next/navigation";
+import { useSelectedSoltice } from "@/lib/store.ts/store";
 
 const ApexArenaResultView = () => {
   const router = useRouter();
+  const { setSelectedID } = useSelectedSoltice((state) => state);
 
+  function handleClick() {
+    setSelectedID(0);
+    router.push("/apex-arena");
+  }
   return (
     <div className="max-w-[800px] max-h-[450px] flex flex-col items-center justify-center relative">
       <BannerStone className="w-full max-w-[800px] z-[1]" />
@@ -32,7 +38,7 @@ const ApexArenaResultView = () => {
 
         <h1
           className={
-            (cn(spacegrotesk.className),
+            (cn("font-[spacegrotesk]"),
             "font-bold text-[48px] text-[#f4e7e5] apex-arena-med")
           }
         >
@@ -40,12 +46,7 @@ const ApexArenaResultView = () => {
         </h1>
       </div>
       <button
-        // disabled={selectedID <= 0}
-        onClick={() => router.push("/apex-arena")}
-        //      ${ selectedID <= 0
-        //     ? "grayscale cursor-not-allowed"
-        //     : "opacit-100 hover:scale-105"
-        // }
+        onClick={handleClick}
         className={`absolute -bottom-[7%] left-1/2 transform -translate-x-1/2  z-[999] duration-150`}
       >
         <img

@@ -4,13 +4,23 @@
 
 @layer base {
   body {
-    @apply bg-cNeutral-900;
+    @apply bg-[#0a0a0a];
   }
 }
 
 @font-face {
   font-family: switzer;
   src: url(../fonts/Switzer-Regular.otf);
+}
+
+@font-face {
+  font-family: trispace;
+  src: url(../fonts/trispace.ttf);
+}
+
+@font-face {
+  font-family: spacegrotesk;
+  src: url(../fonts/space-grotesk.ttf);
 }
 
 html,

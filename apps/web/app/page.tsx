@@ -1,11 +1,11 @@
-import ApexArenaView from "@/views/ApexArenaView";
-import PurchaseView from "@/views/PurchaseView";
+import GameSection from "@/components/LandingPage/GameSection";
+import HeroSection from "@/components/LandingPage/HeroSection";
 
 export default function Home() {
   return (
     <>
-      {/* <ApexArenaView /> */}
-      {/* <PurchaseView /> */}
+      <HeroSection />
+      <GameSection />
     </>
   );
 }

@@ -125,7 +125,7 @@ const ApexArenaCharacterView = () => {
 
                 <h1
                   className={
-                    (cn(spacegrotesk.className), "text-base text-cNeutral-100")
+                    (cn("font-[spacegrotesk]"), "text-base text-cNeutral-100")
                   }
                 >
                   Chance: 8%
