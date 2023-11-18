@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 import { ConnectWallet } from "./ConnectWallet";
 import { cn } from "@/lib/utils";
-import { spacegrotesk } from "@/public/fonts";
 import { usePathname } from "next/navigation";
 import HeaderLanding from "./LandingPage/HeaderLanding";
 
@@ -55,16 +54,13 @@ const Header = () => {
                 <a
                   href={data.linkUrl}
                   key={index}
-                  className={
-                    (cn("font-[spacegrotesk]"),
-                    `text-base ${
-                      pathname === data.linkUrl ? "font-bold" : "font-normal"
-                    } ${
-                      pathname === "/apex-arena/battle"
-                        ? "text-cNeutral-900 "
-                        : "text-cNeutral-100"
-                    }`)
-                  }
+                  className={`text-base font-[spacegrotesk] ${
+                    pathname === data.linkUrl ? "font-bold" : "font-normal"
+                  } ${
+                    pathname === "/apex-arena/battle"
+                      ? "text-cNeutral-900 "
+                      : "text-cNeutral-100"
+                  }`}
                 >
                   {data.name}
                 </a>
@@ -76,7 +72,7 @@ const Header = () => {
         <div className="flex flex-wrap gap-8 items-center">
           <div className="flex flex-row items-center gap-2">
             <Image
-              src={"/assets/navbar/energy-icon.png"}
+              src={"/assets/apex-arena/time-potion.png"}
               alt={"Time Potion"}
               height={32}
               width={24}
@@ -103,7 +99,7 @@ const Header = () => {
           <div className="flex flex-row items-center gap-2">
             <Image
               src={"/assets/navbar/energy-icon.png"}
-              alt={"Time Potion"}
+              alt={"Energy Icon"}
               height={32}
               width={24}
             />

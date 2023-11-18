@@ -155,12 +155,16 @@ const ApexArenaCharacterView = () => {
                   alt={data.title}
                   height={300}
                   width={300}
-                  className="w-full max-w-[200px] p-4 duration-300 relative z-[2] group-hover:scale-[1.01] group-hover:-translate-y-2"
+                  className={`w-full max-w-[200px] p-4 duration-300 relative z-[2] ${
+                    selectedID === data.tokenId
+                      ? "group-hover:scale-95 group-hover:translate-y-2"
+                      : "group-hover:-translate-y-2"
+                  }`}
                 />
                 <SelectedSoltice
                   className={`absolute top-[22.5%] left-1/2 transform -translate-x-1/2 -translate-y-[22.5%] z-[1] scale-125 ${
                     selectedID === data.tokenId
-                      ? "opacity-100 group-hover:scale-[1.1]"
+                      ? "opacity-100 group-hover:-translate-y-[20.5%] group-hover:scale-[120%]"
                       : "opacity-0"
                   } duration-150`}
                 />
@@ -184,13 +188,13 @@ const ApexArenaCharacterView = () => {
         <>
           <button
             onClick={nexto}
-            className="p-1 bg-alice-white/5 rounded-full absolute top-1/2 -right-[5%] transform  -translate-y-1/2 z-[99]"
+            className="p-1 bg-alice-white/5 rounded-full absolute top-1/2 -right-[5%] transform  -translate-y-1/2 z-[99] hover:scale-110"
           >
             <Arrow />
           </button>
           <button
             onClick={backto}
-            className="p-1 bg-alice-white/5 rounded-full absolute top-1/2 -left-[8%] transform rotate-180 -translate-y-1/2 z-[99]"
+            className="p-1 bg-alice-white/5 rounded-full absolute top-1/2 -left-[8%] transform rotate-180 -translate-y-1/2 z-[99] hover:scale-110"
           >
             <Arrow />
           </button>

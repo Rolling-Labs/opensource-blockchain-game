@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { ConnectWallet } from "../ConnectWallet";
 import GameModalSection from "./GameModalSection";
@@ -44,18 +43,15 @@ const HeaderLanding = () => {
               />
             </a>
 
-            <div className="flex flex-wrap gap-4 items-center">
+            <div className="hidden lg:flex flex-wrap gap-4 items-center">
               {navigation.map((data, index) => {
                 return (
                   <a
                     href={data.linkUrl}
                     key={index}
-                    className={
-                      (cn("font-[spacegrotesk]"),
-                      `text-base ${
-                        pathname === data.linkUrl ? "font-bold" : "font-normal"
-                      } text-cNeutral-900 hover:font-bold duration-150`)
-                    }
+                    className={`text-base font-[spacegrotesk] px-4 py-2 rounded-sm ${
+                      pathname === data.linkUrl ? "font-bold" : "font-normal"
+                    } text-cNeutral-900 hover:font-bold hover:bg-[#00000008] duration-150`}
                   >
                     {data.name}
                   </a>
@@ -64,12 +60,12 @@ const HeaderLanding = () => {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-8 items-center">
+          <div className="hidden lg:flex flex-wrap gap-4 items-center">
             <ConnectWallet />
 
             <button
               onClick={() => setIsShowModal(!isShowModal)}
-              className="font-[trispace] uppercase bg-cNeutral-900 rounded-lg px-4 py-2 text-cNeutral-100 font-bold duration-150 hover:opacity-50"
+              className="font-[spacegrotesk] uppercase bg-cNeutral-900 rounded-md px-4 py-2 text-cNeutral-100 font-bold duration-150 hover:opacity-80"
             >
               Play Now
             </button>

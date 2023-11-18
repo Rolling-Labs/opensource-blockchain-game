@@ -117,7 +117,7 @@ const DashboardView = () => {
           pagination={true}
           spaceBetween={10}
           thumbs={{ swiper: thumbsSwiper }}
-          className="mySwiperTeam-v2 lg:faded-swiper "
+          className="relative w-[300px] sm:ww-[600px] md:w-[700px]"
           id="side-anim-right-features"
           breakpoints={{
             375: {

@@ -65,7 +65,7 @@ const CardNFT = ({
         return (
           <div
             key={index}
-            className="p-2 flex flex-wrap gap-2 items-center w-full"
+            className="px-2 py-0 flex flex-wrap gap-2 items-center w-full"
           >
             {data.icon}
             <h1 className="font-[spacegrotesk] text-base text-cNeutral-100">

@@ -77,7 +77,7 @@ const NFTSection = () => {
 
   return (
     <div className="flex justify-center items-center pb-[4rem]">
-      <div className="flex flex-wrap gap-8 justify-start items-center max-w-[90rem] grow">
+      <div className="flex flex-wrap gap-8 justify-start items-center max-w-[90rem] grow px-4">
         <div className="flex flex-col max-w-[700px] h-full grow gap-16">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-4">
@@ -95,7 +95,7 @@ const NFTSection = () => {
             </div>
 
             <div>
-              <button className="font-[trispace] text-cNeutral-900 rounded-sm px-8 py-4 bg-cNeutral-100 font-bold duration-150 hover:opacity-50">
+              <button className="font-[trispace] text-[#ffffff50] rounded-md px-8 py-4 bg-cNeutral-500 font-bold duration-150 hover:cursor-not-allowed">
                 Marketplace
               </button>
             </div>

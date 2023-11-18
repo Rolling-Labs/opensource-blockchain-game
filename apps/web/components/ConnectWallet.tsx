@@ -39,7 +39,7 @@ export const ConnectWallet = () => {
                   <button
                     onClick={openConnectModal}
                     type="button"
-                    className="text-[#fff] bg-gradient-to-r from-[#7229e2] to-[#2159df] flex items-center gap-2 px-4 py-2 rounded-lg font-bold hover:opacity-50 duration-150"
+                    className="text-[#fff] bg-gradient-to-r from-[#7229e2] to-[#2159df] flex items-center gap-2 px-4 py-2 rounded-md font-bold hover:opacity-50 duration-150"
                   >
                     Connect Wallet
                   </button>

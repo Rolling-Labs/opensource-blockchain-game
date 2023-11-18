@@ -7,7 +7,7 @@ import Image from "next/image";
 const PurchaseView = () => {
   return (
     <div className="flex justify-center items-center pt-[8rem] pb-[2rem]">
-      <div className="flex flex-col max-w-[75rem] grow px-4">
+      <div className="flex flex-col max-w-[75rem] gap-6 grow px-4">
         <h1 className="text-cNeutral-100 font-[switzer] text-2xl sm:text-5xl font-bold">
           Purchase
         </h1>

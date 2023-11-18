@@ -3,6 +3,7 @@
 import { useSelectedSoltice } from "@/lib/store.ts/store";
 import React from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const ApexArenaButton = () => {
   const { selectedID, setSelectedID } = useSelectedSoltice((state) => state);
@@ -15,10 +16,10 @@ const ApexArenaButton = () => {
       className={`${
         selectedID <= 0
           ? "grayscale cursor-not-allowed"
-          : "opacit-100 hover:scale-105"
+          : "opacit-100 hover:-translate-y-1 hover:scale-105"
       } absolute bottom-[6.5%] left-1/2 transform -translate-x-1/2  z-[999] duration-150`}
     >
-      <img
+      <Image
         src={"/assets/apex-arena/start-image.png"}
         alt={"start"}
         height={300}

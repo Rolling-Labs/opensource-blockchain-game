@@ -38,7 +38,7 @@ const GameSection = () => {
             battles and prove you are the best Soltice Trainer!
           </p>
         </div>
-        <div className="flex flex-wrap justify-center sm:justify-end items-center grow gap-4">
+        <div className="flex flex-wrap items-start justify-center sm:justify-end grow gap-4">
           {gamedata.map((data, index) => {
             return (
               <a href={data.linkUrl} key={index}>
@@ -47,7 +47,7 @@ const GameSection = () => {
                   alt={data.name}
                   height={240}
                   width={427}
-                  className="w-full max-w-[427px]"
+                  className="w-full max-w-[427px] duration-200 ease-in-out box-border border-4 hover:border-[#ffffff]"
                 />
               </a>
             );
